@@ -20,7 +20,7 @@ int main()
 	}
 	
 	
-	fichier = fopen("map/map1.txt","r");
+	fichier = fopen("map1.txt","r");
 	if(fichier == NULL)
 	{
 		printf("Ouverture du fichier impossible\n");
