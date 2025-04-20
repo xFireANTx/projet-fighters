@@ -19,3 +19,8 @@ void affiche_tableau(char** tab,int taille)
 		printf("\n");
 	}
 }
+
+void vider_tampon()
+{
+    while (getchar() != '\n'); // Vide le tampon d'entrée
+}
