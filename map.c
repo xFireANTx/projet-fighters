@@ -5,27 +5,16 @@
 int choix_map()
 {
     int num_map=0;
-    char c;
     do{
         printf("Choisissez le numero de la carte (1-3): ");
-        if (scanf("%d", &num_map)!=1) 
+        scan_int(&num_map);
+        if(num_map < 1 || num_map > 3)
         {
-            printf("Valeur entree incorrect.\n");
-            vider_tampon();
-            num_map=0;
+            printf("Erreur, veuillez choisir une carte entre 1 et 3.\n\n");
         }
-        else {
-            if ((c = getchar()) != '\n') 
-            {
-                printf("Trop de valeur entree, reessayez.\n");
-                vider_tampon();
-                num_map = 0;
-            }
-            else if(num_map < 1 || num_map > 3) 
-            {
-                printf("Numsro de carte invalide. Veuillez choisir entre 1, 2 et 3.\n");
-                num_map=0;
-            }
+        else
+        {
+            printf("Vous avez choisi la carte :%d\n", num_map);
         }
 
     } while (num_map < 1 || num_map > 3);
@@ -87,7 +76,5 @@ void generation_carte(int num,char **carte )
 		carte[a]=ligne;
 
 	}
-	
-	affiche_tableau(carte,CARTE_TAILLE);
 	fclose(fichier);
 }
