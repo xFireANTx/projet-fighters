@@ -56,7 +56,6 @@ void afficherTableau(int tableau[MAP_SIZE][MAP_SIZE]) {
     }
 }
 
-
 int main(){
     int carte[MAP_SIZE][MAP_SIZE] = {0};
     afficherTableau(carte);
