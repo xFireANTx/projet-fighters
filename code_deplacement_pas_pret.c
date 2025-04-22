@@ -2,7 +2,37 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int deplacement(int r,int map[MAP_SIZE][MAP_SIZE],int  position[2]){   //r = nombre de deplacement
+
+int verif_coord(int xMax, int yMax, int xMin, int yMin) {
+    int mouvement_x, mouvement_y;
+    int lecture1, lecture2;
+
+    printf("Entrez x entre %d et %d : ", xMin, xMax);
+    while ((lecture1 = scanf("%d", &mouvement_x)) != 1) {               //lecture regarde si un bon nombre a été entré 1=oui  0=non
+        printf("Entree invalide ! Veuillez entrer un nombre : ");
+        while (getchar() != '\n');                                      // Nettoie le buffer
+    }
+
+    printf("Entrez y entre %d et %d : ", yMin, yMax);
+    while ((lecture2 = scanf("%d", &mouvement_y)) != 1) {               //lecture regarde si un bon nombre a été entré 1=oui  0=non
+        printf("Entree invalide ! Veuillez entrer un nombre : ");
+        while (getchar() != '\n');                                      // Nettoie le buffer
+    }
+
+    if (mouvement_x < xMin || mouvement_x > xMax) {                     //On regarde si les coordonees sont dans l intervalle de deplacement
+        printf("x n est pas une coordonnee valable.\n");
+        return 0;
+    }
+    if (mouvement_y < yMin || mouvement_y > yMax) {
+        printf("y n est pas une coordonnee valable.\n");
+        return 0;
+    }
+
+    printf("Pas de probleme.\n");
+    return 1;
+}
+
+int deplacement(int r,char map[MAP_SIZE][MAP_SIZE],int  position[2]){   //r = nombre de deplacement
     int x = position[0],y = position[1];  //position depart
     int xMin = x-r ,yMin = y-r ;        //cases disponible pour mouvement
     int xMax = x+r ,yMax = y+r;
@@ -19,35 +49,14 @@ int deplacement(int r,int map[MAP_SIZE][MAP_SIZE],int  position[2]){   //r = nom
     if(y+r>MAP_SIZE){
         yMax=MAP_SIZE;
     }
-    int lecture1,lecture2;
-    int t;
-    lecture1 = scanf("%ld", &mouvement_x);      //on verifie si de nobres sont rentrée/ si c est un      nombre entier, lecture = 1    sinon, lecture = 0
-                                        printf("%d %d\n",lecture1, mouvement_x);    //je cherchais la ou ca plantais
-    lecture2 = scanf("%ld", &mouvement_y);
-                                        printf("%d %d\n",lecture2, mouvement_y);    //je cherchais la ou ca plantais
-    if(lecture1 == 0 ||lecture2 == 0){
-        printf("mauvaise coordonnees\n");
-                                        printf("%d %d\n",lecture1, lecture2);       //idem
-        exit(3);
-    }
-                                        printf("%d %d \n",lecture1, lecture2);      //idem
-    if(mouvement_x<xMin || mouvement_x>xMax){  //on regarde si les coordonées sont compris dans les cases authorisées
-        exit(2);
-    }
-    if(mouvement_y<yMin || mouvement_y>yMax){
-        exit(3);
-    }
-    if(t == 0){
-        exit(4);
-    }
-    else{
-        printf("pas de probleme");
+    int t = 0;
+    while(t == 0){
+    t = verif_coord(xMax, yMax, xMin, yMin);
     }
 }
 
 
-
-void afficherTableau(int tableau[MAP_SIZE][MAP_SIZE]) {
+void afficherTableau(char tableau[MAP_SIZE][MAP_SIZE]) {
     for (int i = 0; i < MAP_SIZE; i++) {
         for (int j = 0; j < MAP_SIZE; j++) {
             printf("%d ", tableau[i][j]);
@@ -56,8 +65,10 @@ void afficherTableau(int tableau[MAP_SIZE][MAP_SIZE]) {
     }
 }
 
+
 int main(){
-    int carte[MAP_SIZE][MAP_SIZE] = {0};
+    char carte[MAP_SIZE][MAP_SIZE] = {0};
     afficherTableau(carte);
+    
 }
 
