@@ -32,7 +32,7 @@ int verif_coord(int xMax, int yMax, int xMin, int yMin) {
     return 1;
 }
 
-int deplacement(int r,char map[MAP_SIZE][MAP_SIZE],int  position[2]){   //r = nombre de deplacement
+int deplacement(int r,char map[MAP_SIZE][MAP_SIZE],int  position[2]){   //r = nombre de deplacement //il manque le changement de la map et la mise a jour de la position
     int x = position[0],y = position[1];  //position depart
     int xMin = x-r ,yMin = y-r ;        //cases disponible pour mouvement
     int xMax = x+r ,yMax = y+r;
