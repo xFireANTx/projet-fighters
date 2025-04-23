@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "interface.h"
+#include "combat.h"
+#include "utilitaire.h"
+
 
 
 void affiche_tableau(char** tab,int taille)

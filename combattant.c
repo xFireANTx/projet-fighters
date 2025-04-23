@@ -1,43 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
-typedef struct {
-    char nom[10];
-    int valeur;
-    char description[10];
-    int nbTourActifs;
-    int nbTourRechargement;
-} Competence;
-
-typedef struct {
-    float pvCourant;
-    float pvMax;
-    float attaque;
-    float defense;
-    float agilite;
-    float vitesse;
-    Competence competences[5];
-    int effetActif;
-} Combattant;
-
-// Renvoie un nombre aléatoire entre 0 et max - 1
-int nombreAleatoire(int max) {
-    if (max <= 0) return 0;
-    return rand() % max;
-}
+#include "interface.h"
+#include "combat.h"
+#include "utilitaire.h"
 
 // Fonction pour créée un combattant
 Combattant creerCombattant(float pvCourant, float pvMax, float attaque, float defense, float agilite, float vitesse) {
-    Combattant combattant;
-    combattant.pvCourant = pvCourant;
-    combattant.pvMax = pvMax;
-    combattant.attaque = attaque;
-    combattant.defense = defense;
-    combattant.agilite = agilite;
-    combattant.vitesse = vitesse;
-    combattant.effetActif = 0;
-    return combattant;
+    Combattant c;
+    c.pvCourant = pvCourant;
+    c.pvMax = pvMax;
+    c.attaque = attaque;
+    c.defense = defense;
+    c.agilite = agilite;
+    c.vitesse = vitesse;
+    c.effetActif = 0;
+    return c;
 }
 
 // Affiche les stats d’un combattant
@@ -53,7 +31,7 @@ void afficherStats(Combattant combattants[], int nbCombattants) {
 
 // Fonction attaque, modifie directement la victime (pointeur)
 int attaquer(Combattant agresseur, Combattant* victime) {
-    if (nombreAleatoire(20 - victime->agilite) != 1) {
+    if (nbAleatoire(20 - victime->agilite) != 1) {
         float degatsAgresseur = agresseur.attaque / 100.0;
         float reductionDegatsVictime = 1 - victime->defense / 100.0;
         float reduction = 1 - degatsAgresseur * reductionDegatsVictime;
@@ -73,23 +51,3 @@ void combattre(Combattant combattant1, Combattant* combattant2) {
     }
 }
 
-int main() {
-    srand(time(NULL));
-
-
-    Combattant chevalier1 = creerCombattant(500, 500, 20, 50, 5, 1);
-    Combattant chevalier2 = creerCombattant(500, 500, 20, 50, 5, 1);
-    Combattant combattants[2] = {chevalier1, chevalier2};
-
-    while(chevalier1.pvCourant > 0.0001 && chevalier2.pvCourant > 0.0001) {
-        combattre(chevalier1, &chevalier2);
-
-        printf("\n--- Stats après attaque ---\n");
-        afficherStats(combattants, 2);
-
-    }
-
-
-
-    return 0;
-}

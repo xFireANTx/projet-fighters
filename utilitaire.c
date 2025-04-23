@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "interface.h"
+#include "combat.h"
+#include "utilitaire.h"
+
 
 void vider_tampon()
 {
@@ -60,4 +63,10 @@ void scan_float(float *valeur)
             }
         }
     }while(resultat != 1);
+}
+
+int nbAleatoire(int max) {
+    srand(time(NULL)); // Initialisation de la graine de génération aléatoire
+    if (max <= 0) return 0;
+    return rand() % max;
 }
