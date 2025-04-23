@@ -12,7 +12,7 @@ int main()
     int n_map=choix_map();
     generation_carte(n_map,carte);
     affiche_tableau(carte,CARTE_TAILLE);
-    Combattant chevalier1 = creerCombattant(500, 500, 20, 50, 5, 1);
+    /*Combattant chevalier1 = creerCombattant(500, 500, 20, 50, 5, 1);
     Combattant chevalier2 = creerCombattant(500, 500, 20, 50, 5, 1);
     Combattant combattants[2] = {chevalier1, chevalier2};
     while(chevalier1.pvCourant > 0.0001 && chevalier2.pvCourant > 0.0001) {
@@ -22,9 +22,12 @@ int main()
         afficherStats(combattants, 2);
 
     }
+    */
     for(int a=0;a<CARTE_TAILLE;a++)
 	{
 		free(carte[a]);
 	}
 	free(carte);
+    return 0;
+
 }

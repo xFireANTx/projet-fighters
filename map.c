@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "interface.h"
+#include "combat.h"
+#include "utilitaire.h"
+
 
 int choix_map()
 {

@@ -35,7 +35,7 @@ void scan_int(int *valeur)
             {
                 printf("Trop de valeur entree, reessayez.\n");
                 vider_tampon();
-                resultat = 0; // Réinitialiser result pour continuer la boucle
+                resultat = 0; // Réinitialiser resultat pour continuer la boucle
             }
         }
     }while(resultat != 1);
@@ -59,7 +59,7 @@ void scan_float(float *valeur)
             {
                 printf("Trop de valeur entree, reessayez.\n");
                 vider_tampon();
-                resultat = 0; // Réinitialiser result pour continuer la boucle
+                resultat = 0; // Réinitialiser resultat pour continuer la boucle
             }
         }
     }while(resultat != 1);
