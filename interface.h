@@ -6,6 +6,7 @@
 	void affiche_tableau(char** tab,int taille);
     void generation_carte(int num,char **carte);
     int choix_map();
+    int verif_coord(int* x, int* y,int xMax, int yMax, int xMin, int yMin);
+    void deplacement(int *x,int*y ,int portee,char **map);
 
-	
 #endif

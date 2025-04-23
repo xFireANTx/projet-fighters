@@ -4,6 +4,7 @@
         "interface.h": "c",
         "stdlib.h": "c",
         "utilitaire.h": "c",
-        "combat.h": "c"
+        "combat.h": "c",
+        "time.h": "c"
     }
 }

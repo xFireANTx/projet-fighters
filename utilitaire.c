@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
 #include "interface.h"
 #include "combat.h"
 #include "utilitaire.h"
