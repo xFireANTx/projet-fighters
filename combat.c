@@ -19,7 +19,7 @@ Combattant creerCombattant(float pvCourant, float pvMax, float attaque, float de
     c.position_x = x;
     c.position_y = y;
     return c;
-}
+
 
 // Affiche les stats d’un combattant
 void afficherStats(Combattant combattants[], int nbCombattants) {
@@ -34,7 +34,9 @@ void afficherStats(Combattant combattants[], int nbCombattants) {
 
 // Fonction attaque, modifie directement la victime (pointeur)
 int attaquer(Combattant agresseur, Combattant* victime) {
+
     if (nbAleatoire(20 - victime->agilite) != 1) {
+
         float degatsAgresseur = agresseur.attaque / 100.0;
         float reductionDegatsVictime = 1 - victime->defense / 100.0;
         float reduction = 1 - degatsAgresseur * reductionDegatsVictime;
@@ -53,4 +55,3 @@ void combattre(Combattant combattant1, Combattant* combattant2) {
         printf("Raté !\n");
     }
 }
-
