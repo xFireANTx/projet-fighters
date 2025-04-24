@@ -5,6 +5,8 @@
     void vider_tampon();
     void scan_int(int *valeur);
     void scan_float(float *valeur);
+    void scan_char(char *valeur);
     int nbAleatoire(int max) ;
+    int choix();
 
 #endif

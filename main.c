@@ -1,6 +1,5 @@
-//TODO Ajoutez une fonction vérifiant si la case est libre avant de déplacer le combattant 
-// créer une boucle pour le déplacement de chaque combattant
 
+// créer une boucle pour le déplacement de chaque combattant
 
 #include <stdio.h>
 #include <stdlib.h>

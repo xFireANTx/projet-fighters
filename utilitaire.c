@@ -67,6 +67,53 @@ void scan_float(float *valeur)
     }while(resultat != 1);
 }
 
+void scan_char(char *valeur)
+{
+    int resultat = 0;
+    do{
+        resultat = scanf(" %c", valeur); // Notez l'espace avant %c pour ignorer les espaces
+        if (resultat != 1) 
+        {
+            printf("Vous devez rentrez un caractere,reessayer:\n"); //Cas extrêmement rare comme ctrl + D ou ctrl + Z
+            vider_tampon();
+        
+        }
+        else
+        {
+            char c = getchar();
+            if (c != '\n') 
+            {
+                printf("Trop de caractere entree, reessayez:\n");
+                vider_tampon();
+                resultat = 0; // Réinitialiser resultat pour continuer la boucle
+            }
+        }
+    }while(resultat != 1);
+}
+
+int choix()
+{
+    printf("Confirmez vous votre choix (o/n): ");
+    char c;
+    scan_char(&c); // On utilise une fonction de scan_char pour lire un seul caractère
+    if(c =='O' || c =='o')
+    {
+        printf("Choix confirme\n");
+        return 1;
+    }
+    else if(c == 'N' || c == 'n')
+    {
+        printf("Choix non confirme\n");
+        return 0;
+    }
+    else
+    {
+        printf("Erreur de saisie,vous devez choisir entre Oui ou Non (o/n), recommencez.\n");
+        return choix(); // Appel récursif pour redemander le choix
+    }
+    return c ;  
+}
+
 int nbAleatoire(int max) {
     srand(time(NULL)); // Initialisation de la graine de génération aléatoire
     if (max <= 0) return 0;
