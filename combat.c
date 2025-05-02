@@ -8,6 +8,7 @@
 // Fonction pour créée un combattant
 Combattant creerCombattant(int equipe, float pvCourant, float pvMax, float attaque, float defense, float agilite, float vitesse,int deplacement,int x,int y) {
     Combattant c;
+    c.equipe = equipe;
     c.pvCourant = pvCourant;
     c.pvMax = pvMax;
     c.attaque = attaque;
