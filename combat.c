@@ -6,7 +6,7 @@
 #include "utilitaire.h"
 
 // Fonction pour créée un combattant
-Combattant creerCombattant(float pvCourant, float pvMax, float attaque, float defense, float agilite, float vitesse,int deplacement,int x,int y) {
+Combattant creerCombattant(int equipe, float pvCourant, float pvMax, float attaque, float defense, float agilite, float vitesse,int deplacement,int x,int y) {
     Combattant c;
     c.pvCourant = pvCourant;
     c.pvMax = pvMax;
@@ -19,10 +19,10 @@ Combattant creerCombattant(float pvCourant, float pvMax, float attaque, float de
     c.position_x = x;
     c.position_y = y;
     return c;
-
+}
 
 // Affiche les stats d’un combattant
-void afficherStats(Combattant combattants[], int nbCombattants) {
+void afficherStats(Combattant combattants[], int nbCombattants){
     printf("combattant 1 : %f pv\n", combattants[0].pvCourant);
     printf("combattant 2 : %f pv\n", combattants[1].pvCourant);
     /*

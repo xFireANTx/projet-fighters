@@ -11,6 +11,7 @@
     } Competence;
     
     typedef struct {
+        int equipe;
         float pvCourant;
         float pvMax;
         float attaque;
