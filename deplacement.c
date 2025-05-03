@@ -19,7 +19,7 @@ int verif_obstacle(int x, int y, char **carte) {
 int verif_coord(int* x, int* y,int xMax, int yMax, int xMin, int yMin,char **carte) { 
     // x et y sont les coordonnees du joueur    
     // On regarde si les coordonnees sont dans l'intervalle de deplacement
-    printf("Vous êtes sur la case : x = %d, y = %d\n", *x, *y);
+    printf("Vous etes sur la case : x = %d, y = %d\n", *x, *y);
     printf("Entrez x entre %d et %d : ", xMin, xMax);
     scan_int(x); // Regarder le fichier utilitaire pour voir comment fonctionne scan_int
     if (*x < xMin || *x > xMax) {                     

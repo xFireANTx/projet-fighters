@@ -3,17 +3,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
 #include "interface.h"
 #include "combat.h"
 #include "utilitaire.h"
-
-EQUIPE creerEquipe(int num_equipe) {
-    EQUIPE equipe;
-    equipe.equipe = num_equipe;
-    printf("Entrez le nom de l'équipe %d : ", num_equipe);
-    scanf("%[^\n]\n", equipe.nom); // A RENFORCER
-    return equipe;
-}
 
 int main()
 {
@@ -22,17 +15,11 @@ int main()
     int n_map=choix_map();
     generation_carte(n_map,carte);
     affiche_tableau(carte,CARTE_TAILLE);
-    EQUIPE equipe1;
-    EQUIPE equipe2;
-    equipe1.equipe = 1;
-    equipe2.equipe = 2;
-    equipe1.combattant1 = creerCombattant(500, 500, 20, 50, 5, 1, 2, 0, 7);
-    equipe1.combattant2 = creerCombattant(500, 500, 20, 50, 5, 1, 2, 0, 9);
-    equipe1.combattant3 = creerCombattant(500, 500, 20, 50, 5, 1, 2, 0, 11);
-    equipe2.combattant1 = creerCombattant(500, 500, 20, 50, 5, 1, 2, 19, 7);
-    equipe2.combattant2 = creerCombattant(500, 500, 20, 50, 5, 1, 2, 19, 9);
-    equipe2.combattant3 = creerCombattant(500, 500, 20, 50, 5, 1, 2, 19, 11);
-
+    EQUIPE equipe1= creerEquipe(1);
+    EQUIPE equipe2= creerEquipe(2);
+    affiche_equipe(equipe1);
+    affiche_equipe(equipe2);
+    printf("\n");
     int x=equipe1.combattant1.position_x;
     int y=equipe1.combattant1.position_y;
     int portee=equipe1.combattant1.deplacement;
