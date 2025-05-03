@@ -5,21 +5,6 @@
 #include "combat.h"
 #include "utilitaire.h"
 
-// Fonction pour créée un combattant
-Combattant creerCombattant(float pvCourant, float pvMax, float attaque, float defense, float agilite, float vitesse,int deplacement,int x,int y) {
-    Combattant c;
-    c.pvCourant = pvCourant;
-    c.pvMax = pvMax;
-    c.attaque = attaque;
-    c.defense = defense;
-    c.agilite = agilite;
-    c.vitesse = vitesse;
-    c.effetActif = 0;
-    c.deplacement = deplacement;
-    c.position_x = x;
-    c.position_y = y;
-    return c;
-}
 
 // Affiche les stats d’un combattant
 void afficherStats(Combattant combattants[], int nbCombattants) {

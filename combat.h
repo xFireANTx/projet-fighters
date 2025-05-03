@@ -11,6 +11,7 @@
     } Competence;
     
     typedef struct {
+        char nom[11];
         float pvCourant;
         float pvMax;
         float attaque;
@@ -32,7 +33,9 @@
         Combattant combattant3;
     } EQUIPE;
 
-    Combattant creerCombattant(float pvCourant, float pvMax, float attaque, float defense, float agilite, float vitesse,int deplacement,int x,int y);
+    Combattant creerCombattant(int perso);
+    EQUIPE creerEquipe(int num_equipe);
+    void affiche_equipe(EQUIPE equipe);
     void combattre(Combattant combattant1, Combattant* combattant2);
     void afficherStats(Combattant combattants[], int nbCombattants);
     int attaquer(Combattant agresseur, Combattant* victime);
