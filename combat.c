@@ -7,7 +7,7 @@
 
 
 // Affiche les stats d’un combattant
-void afficherStats(Combattant combattants[], int nbCombattants) {
+void afficherStats(Combattant combattants[], int nbCombattants){
     printf("combattant 1 : %f pv\n", combattants[0].pvCourant);
     printf("combattant 2 : %f pv\n", combattants[1].pvCourant);
     /*
@@ -19,7 +19,9 @@ void afficherStats(Combattant combattants[], int nbCombattants) {
 
 // Fonction attaque, modifie directement la victime (pointeur)
 int attaquer(Combattant agresseur, Combattant* victime) {
+
     if (nbAleatoire(20 - victime->agilite) != 1) {
+
         float degatsAgresseur = agresseur.attaque / 100.0;
         float reductionDegatsVictime = 1 - victime->defense / 100.0;
         float reduction = 1 - degatsAgresseur * reductionDegatsVictime;
@@ -38,4 +40,3 @@ void combattre(Combattant combattant1, Combattant* combattant2) {
         printf("Raté !\n");
     }
 }
-
