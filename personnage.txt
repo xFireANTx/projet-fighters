@@ -1,0 +1,7 @@
+nom        pvCourant  pvMax  attaque  defense  agilite  vitesse  deplacement
+Mage       500        500    50       30       4        2        3
+Tank       1000       1000   10       65       2        1        2
+Archer     650        650    30       50       5        5        3
+Assassin   450        450    45       40       6        6        5
+Guerrier   500        500    20       50       5        3        3
+Healer     800        800    20       50       4        4        4
