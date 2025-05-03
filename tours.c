@@ -32,19 +32,20 @@ void triABulles(Combattant tableau[], int taille) {
 }
 
 void tours(Combattant *equipe1, Combattant *equipe2, char **carte){
-    Combattant perso [6];
+    Combattant** perso;
+    perso = malloc(sizeof(Combattant)*6);
     for(int t=0; t<3; t++){
-        perso[t] = equipe1[t];
+        perso[t] = &equipe1[t];
     }
     for(int t=3; t<6; t++){
-        perso[t] = equipe2[t-3];
+        perso[t] = &equipe2[t-3];
     }
     int victime;
     triABulles(perso, 6);       //tri perso par vitesse
     for(int i = 0; i<6; i++){
-        deplacement(perso[i].position_x, perso[i].position_y, perso[i].deplacement,carte);
+        deplacement(perso[i], carte);
         victime = verifATT(perso, i);
-        combattre(perso[i], perso[3]);            //comprend pas
+        combattre(*perso[i], perso[victime]);            //comprend pas
     }
 }
 
@@ -68,29 +69,32 @@ int verif_coord(int* x, int* y,int xMax, int yMax, int xMin, int yMin) {
     printf("Nouvelle position : x = %d, y = %d\n", *x, *y);
     return 1;
 }
-void deplacement(int *x,int *y,int portee,char **map){   
-
+void deplacement(Combattant *perso,char **map){   
+    int x,y,portee;
+    x = perso->position_x;
+    y = perso->position_y;
+    portee = perso->deplacement;
 
     //cases disponible pour mouvement
-    int xMin = *x-portee ,yMin = *y-portee ;        
-    int xMax = *x+portee ,yMax = *y+portee;
+    int xMin = x-portee ,yMin = y-portee ;        
+    int xMax = x+portee ,yMax = y+portee;
    //on fait en sorte que les Min et Max ne sortent pas de la map
-    if(*x-portee<0){                          
+    if(x-portee<0){                          
         xMin = 0;
     }
-    if(*x+portee>CARTE_TAILLE-1){ 
+    if(x+portee>CARTE_TAILLE-1){ 
         xMax = CARTE_TAILLE-1;
     }
-    if(*y-portee<0){
+    if(y-portee<0){
         yMin=0;
     }
-    if(*y+portee>CARTE_TAILLE-1){
+    if(y+portee>CARTE_TAILLE-1){
         yMax=CARTE_TAILLE-1;
     }
 
     int t = 0;
     while(!t){
-        t = verif_coord(x,y,xMax, yMax, xMin, yMin);
+        t = verif_coord(perso->position_x,perso->position_y,xMax, yMax, xMin, yMin);
     }
     return;
 }
@@ -112,3 +116,5 @@ int verifATT(Combattant* perso, int i){
         }
     }
 }
+
+
