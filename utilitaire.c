@@ -110,8 +110,7 @@ int choix()
     {
         printf("Erreur de saisie,vous devez choisir entre Oui ou Non (o/n), recommencez.\n");
         return choix(); // Appel récursif pour redemander le choix
-    }
-    return c ;  
+    }  
 }
 
 int nbAleatoire(int max) {
