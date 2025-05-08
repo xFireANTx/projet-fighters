@@ -43,7 +43,7 @@ void tours(Combattant *equipe1, Combattant *equipe2, char **carte){
     int victime;
     triABulles(perso, 6);       //tri perso par vitesse
     for(int i = 0; i<6; i++){
-        deplacement(perso[i], carte);
+        deplacement(perso[i]->position_x, perso[i]->position_y, perso[i]->deplacement, carte);
         victime = verifATT(perso, i);
         combattre(*perso[i], perso[victime]);            //comprend pas
     }
