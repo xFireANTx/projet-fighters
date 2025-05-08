@@ -26,7 +26,7 @@ int verif_coord(int* x, int* y,int xMax, int yMax, int xMin, int yMin) {
     return 1;
 }
 
-void deplacement(int *x,int *y,int portee,char **map){   
+void deplacement(int *x,int *y,int portee){   
 
     //cases disponible pour mouvement
     int xMin = *x-portee ,yMin = *y-portee ;        

@@ -9,14 +9,14 @@
 perso + rapide deplacement puis att
 trier perso +rapide
 */
-
+/*
 int main(){  //a modifier
     char carte;
     generation_carte(20,carte);
     Combattant equipe1 [3];
     Combattant equipe2 [3];
     tours(equipe1, equipe2, carte);
-}
+}*/
 
 void triABulles(Combattant tableau[], int taille) {
     for (int i = 0; i < taille - 1; i++) {
@@ -31,6 +31,25 @@ void triABulles(Combattant tableau[], int taille) {
     }
 }
 
+int verifATT(Combattant* perso, int i){
+    int x,y =0;
+    int t=0;
+    while(t==0){
+        printf("entrez la coordonée x de l adversaire \n");
+        scan_int(&x);
+        printf("entrez la coordonée y de l adversaire \n");
+        scan_int(&y);
+        for(int j = 0; i<6; i++){
+            if(x == perso[j].position_x && y == perso[j].position_y){
+                if(perso[i].equipe != perso[j].equipe){
+                    return j;
+                }
+            }
+        }
+    }
+}
+
+
 void tours(Combattant *equipe1, Combattant *equipe2, char **carte){
     Combattant** perso;
     perso = malloc(sizeof(Combattant)*6);
@@ -41,32 +60,14 @@ void tours(Combattant *equipe1, Combattant *equipe2, char **carte){
         perso[t] = &equipe2[t-3];
     }
     int victime;
-    triABulles(perso, 6);       //tri perso par vitesse
+    triABulles(*perso, 6);       //tri perso par vitesse
     for(int i = 0; i<6; i++){
-        deplacement(perso[i]->position_x, perso[i]->position_y, perso[i]->deplacement, carte);
-        victime = verifATT(perso, i);
+        deplacement(&perso[i]->position_x, &perso[i]->position_y, perso[i]->deplacement);
+        victime = verifATT(*perso, i);
         combattre(*perso[i], perso[victime]);            //comprend pas
     }
 }
 
 
-
-int verifATT(Combattant* perso, int i){
-    int x,y =0;
-    int t=0;
-    while(t==0){
-        printf("entrez la coordonée x de l adversaire \n");
-        scan_int(x);
-        printf("entrez la coordonée y de l adversaire \n");
-        scan_int(y);
-        for(int j = 0; i<6; i++){
-            if(x == perso[j].position_x && y == perso[j].position_y){
-                if(perso[i].equipe != perso[j].equipe){
-                    return j;
-                }
-            }
-        }
-    }
-}
 
 
