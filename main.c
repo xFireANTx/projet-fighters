@@ -26,12 +26,12 @@ int main()
     EQUIPE equipe2;
     equipe1.equipe = 1;
     equipe2.equipe = 2;
-    equipe1.combattant1 = creerCombattant(500, 500, 20, 50, 5, 1, 2, 0, 7);
-    equipe1.combattant2 = creerCombattant(500, 500, 20, 50, 5, 1, 2, 0, 9);
-    equipe1.combattant3 = creerCombattant(500, 500, 20, 50, 5, 1, 2, 0, 11);
-    equipe2.combattant1 = creerCombattant(500, 500, 20, 50, 5, 1, 2, 19, 7);
-    equipe2.combattant2 = creerCombattant(500, 500, 20, 50, 5, 1, 2, 19, 9);
-    equipe2.combattant3 = creerCombattant(500, 500, 20, 50, 5, 1, 2, 19, 11);
+    equipe1.combattant1 = creerCombattant(1, 500, 500, 20, 50, 5, 1, 2, 0, 7);
+    equipe1.combattant2 = creerCombattant(1, 500, 500, 20, 50, 5, 1, 2, 0, 9);
+    equipe1.combattant3 = creerCombattant(1, 500, 500, 20, 50, 5, 1, 2, 0, 11);
+    equipe2.combattant1 = creerCombattant(1, 500, 500, 20, 50, 5, 1, 2, 19, 7);
+    equipe2.combattant2 = creerCombattant(1, 500, 500, 20, 50, 5, 1, 2, 19, 9);
+    equipe2.combattant3 = creerCombattant(1, 500, 500, 20, 50, 5, 1, 2, 19, 11);
 
     int x=equipe1.combattant1.position_x;
     int y=equipe1.combattant1.position_y;
