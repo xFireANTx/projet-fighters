@@ -33,7 +33,7 @@
         Combattant combattant3;
     } EQUIPE;
 
-    Combattant creerCombattant(float pvCourant, float pvMax, float attaque, float defense, float agilite, float vitesse,int deplacement,int x,int y);
+    Combattant creerCombattant(int equipe,float pvCourant, float pvMax, float attaque, float defense, float agilite, float vitesse,int deplacement,int x,int y);
     void combattre(Combattant combattant1, Combattant* combattant2);
     void afficherStats(Combattant combattants[], int nbCombattants);
     int attaquer(Combattant agresseur, Combattant* victime);
