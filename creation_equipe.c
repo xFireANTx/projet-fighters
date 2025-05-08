@@ -33,7 +33,7 @@ Combattant creerCombattant(int perso) {
 EQUIPE creerEquipe(int num_equipe) {
     EQUIPE equipe;
     equipe.equipe = num_equipe;
-    printf("Entrez le nom de l'équipe %d : ", num_equipe);
+    printf("Entrez le nom de l'equipe %d : ", num_equipe);
     scanf("%10s", equipe.nom); // A RENFORCER
     vider_tampon();
 
