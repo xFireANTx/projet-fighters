@@ -5,7 +5,7 @@
 #include "utilitaire.h"
 
 // x/y_MAX/MIN coordonnees du carree representant la portee de déplacement du joueur
-int verif_coord(int* x, int* y,int xMax, int yMax, int xMin, int yMin) { 
+int verif_coord(int* x, int* y,int xMax, int yMax, int xMin, int yMin, char** map) { 
     // x et y sont les coordonnees du joueur    
     printf("Entrez x entre %d et %d : ", xMin, xMax);
     scan_int(x);//Regarder le fichier utilitaire pour voir comment fonctionne scan_int
@@ -26,7 +26,7 @@ int verif_coord(int* x, int* y,int xMax, int yMax, int xMin, int yMin) {
     return 1;
 }
 
-void deplacement(int *x,int *y,int portee){   
+void deplacement(int *x,int *y,int portee, char **map){   
 
     //cases disponible pour mouvement
     int xMin = *x-portee ,yMin = *y-portee ;        
@@ -47,7 +47,7 @@ void deplacement(int *x,int *y,int portee){
 
     int t = 0;
     while(!t){
-        t = verif_coord(x,y,xMax, yMax, xMin, yMin);
+        t = verif_coord(x,y,xMax, yMax, xMin, yMin, map);
     }
     return;
 }
