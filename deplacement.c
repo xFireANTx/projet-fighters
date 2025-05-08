@@ -4,31 +4,52 @@
 #include "combat.h"
 #include "utilitaire.h"
 
-// x/y_MAX/MIN coordonnees du carree representant la portee de déplacement du joueur
-int verif_coord(int* x, int* y,int xMax, int yMax, int xMin, int yMin, char** map) { 
+int verif_obstacle(int x, int y, char **carte) {
+    if (carte[x][y] == 'X') {
+        return 1; // La case est occupée par un mur
+    }
+    else if(carte[x][y] == '1' || carte[x][y] == '2'){
+        return 2;// La case est occupée par un personnage
+    }
+    return 0; // La case est libre
+}
+
+
+// x/y_MAX/MIN coordonnees du carree representant la portee de deplacement du joueur
+int verif_coord(int* x, int* y,int xMax, int yMax, int xMin, int yMin,char **carte) { 
     // x et y sont les coordonnees du joueur    
     // On regarde si les coordonnees sont dans l'intervalle de deplacement
     printf("Vous etes sur la case : x = %d, y = %d\n", *x, *y);
     printf("Entrez x entre %d et %d : ", xMin, xMax);
-    scan_int(x);//Regarder le fichier utilitaire pour voir comment fonctionne scan_int
-    if (*x < xMin || *x> xMax) {                     //On regarde si les coordonees sont dans l intervalle de deplacement
-        printf("x=%d n'est pas accessible.\n",*x);
+    scan_int(x); // Regarder le fichier utilitaire pour voir comment fonctionne scan_int
+    if (*x < xMin || *x > xMax) {                     
+        printf("x=%d n'est pas accessible.\n", *x);
         return 0;
     }
 
     printf("Entrez y entre %d et %d : ", yMin, yMax);
-    scan_int(y);//fichier utilitaire
+    scan_int(y); // fichier utilitaire
     if (*y < yMin || *y > yMax) {
-        printf("y=%d n'est pas accessible.\n",*y);
+        printf("y=%d n'est pas accessible.\n", *y);
         return 0;
     }
-
-    printf("Pas de probleme.\n");
-    printf("Nouvelle position : x = %d, y = %d\n", *x, *y);
-    return 1;
+    // On regarde si la case est libre
+    int k = verif_obstacle(*x, *y, carte); 
+    if (k == 1) { 
+        printf("La case est occupee par un obstacle.\n");
+        return 0;
+    }
+    else if (k == 2) {
+        printf("La case est deja occupee par un personnage.\n");
+        return 0;
+    }
+    else {
+        printf("Voici la nouvelle position : x = %d, y = %d\n", *x, *y);
+        return choix(); // On demande a l'utilisateur de confirmer son choix
+    }
 }
 
-void deplacement(int *x,int *y,int portee, char **map){   
+void deplacement(int *x,int *y,int portee,char **carte){   
 
     //cases disponible pour mouvement
     int xMin = *x-portee ,yMin = *y-portee ;        
@@ -49,7 +70,7 @@ void deplacement(int *x,int *y,int portee, char **map){
 
     int t = 0;
     while(!t){
-        t = verif_coord(x,y,xMax, yMax, xMin, yMin, map);
+        t = verif_coord(x,y,xMax, yMax, xMin, yMin,carte);
     }
     return;
 }
