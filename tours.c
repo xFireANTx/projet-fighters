@@ -74,13 +74,13 @@ int verif_equipe_vivant(int tab[],Equipe equipe1, Equipe equipe2)
     if(!tab[0] && !tab[1] && !tab[2])
     {
         printf("L'Equipe 1 est morte, Vainqueur:\n);
-        afficheEquipe(equipe1);
+        affiche_equipe(equipe1);
         return 1;
     }
     else if(!tab[3] && !tab[4] && !tab[5])
     {
         printf("L'Equipe 2 est morte, Vainqueur:\n);
-        afficheEquipe(equipe2);
+        affiche_equipe(equipe2);
         return 1;
     }
     return 0;
