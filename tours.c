@@ -69,7 +69,20 @@ void definirOrdreAttaque(Equipe equipe1, Equipe equipe2, Combattant *tabCombatta
     triABulles(tabCombattants,6);
 }
 
-int verif_equipe_vivant(
+int verif_equipe_vivant(int tab[])
+{
+    if(!tab[0] && !tab[1] && !tab[2])
+    {
+        printf("L'Equipe 1 est morte, Vainqueur:\n);
+        return 1;
+    }
+    else if(!tab[3] && !tab[4] && !tab[5])
+    {
+        printf("L'Equipe 2 est morte, Vainqueur:\n);
+        return 1;
+    }
+    return 0;
+}
 
 int tours() {
     
