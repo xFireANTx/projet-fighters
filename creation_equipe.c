@@ -24,6 +24,7 @@ Combattant creerCombattant(int perso) {
     fgets(c.nom, 12, fichier); // On lit le nom du personnage (11 caractères avec les espaces avant la premiere stat)
     fscanf(fichier, "%f %f %f %f %f %f %d %d", &c.pvMax, &c.pvCourant, &c.attaque, &c.defense, &c.agilite, &c.vitesse, &c.deplacement, &c.portee);
     c.effetActif = 0; // On initialise l'effet actif à 0
+    c.vivant = 1;
     fclose(fichier); // On ferme le fichier
     return c;
 }
