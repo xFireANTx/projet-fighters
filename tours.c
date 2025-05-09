@@ -43,6 +43,15 @@ int verifATT(Combattant* perso, int i){
             if(x == perso[j].position_x && y == perso[j].position_y){
                 if(perso[i].equipe != perso[j].equipe){
                     return j;
+// Affiche les stats d’un combattant
+void afficherStats(Combattant combattants[], int nbCombattants){
+    printf("combattant 1 : %f pv\n", combattants[0].pvCourant);
+    printf("combattant 2 : %f pv\n", combattants[1].pvCourant);
+    /*
+    for (int i=1; i <= nbCombattants; i++) {
+        printf("pvCourant du combattant %d : %f pv\n", i, combattants[i-1].pvCourant);
+    }*/
+}
                 }
             }
         }
@@ -50,24 +59,20 @@ int verifATT(Combattant* perso, int i){
 }
 
 
-void tours(Combattant *equipe1, Combattant *equipe2, char **carte){
-    Combattant** perso;
-    perso = malloc(sizeof(Combattant)*6);
-    for(int t=0; t<3; t++){
-        perso[t] = &equipe1[t];
-    }
-    for(int t=3; t<6; t++){
-        perso[t] = &equipe2[t-3];
-    }
-    int victime;
-    triABulles(*perso, 6);       //tri perso par vitesse
-    for(int i = 0; i<6; i++){
-        deplacement(&perso[i]->position_x, &perso[i]->position_y, perso[i]->deplacement, carte);
-        victime = verifATT(*perso, i);
-        combattre(*perso[i], perso[victime]);            //comprend pas
-    }
+void definirOrdreAttaque(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants) {
+    tabComcattants[0]=equipe1.combattant1;
+    tabComcattants[1]=equipe1.combattant2;
+    tabComcattants[2]=equipe1.combattant3;
+    tabComcattants[3]=equipe2.combattant1;
+    tabComcattants[4]=equipe2.combattant2;
+    tabComcattants[5]=equipe2.combattant3;
+    triABulles(tabCombattants,6);
 }
 
+int tours() {
+    
+    return 1
+}
 
 
 
