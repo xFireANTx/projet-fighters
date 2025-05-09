@@ -26,6 +26,7 @@
         int position_y;
         int deplacement;
         int portee;
+        int vivant;
     } Combattant;
 
     typedef struct {
