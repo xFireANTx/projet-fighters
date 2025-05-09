@@ -21,6 +21,8 @@ int main()
     affiche_equipe(equipe2);
     printf("\n");
     Combattant tableau[6];
+    int vivant[6]={1,1,1,1,1,1};
+	
     definirOrdreAttaque(equipe1,equipe2,tableau);
     /*for(int k=0;k<6;k++)
     {
