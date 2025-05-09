@@ -15,8 +15,8 @@ int main()
     int n_map=choix_map();
     generation_carte(n_map,carte);
     affiche_tableau(carte,CARTE_TAILLE);
-    EQUIPE equipe1= creerEquipe(1);
-    EQUIPE equipe2= creerEquipe(2);
+    Equipe equipe1= creerEquipe(1);
+    Equipe equipe2= creerEquipe(2);
     affiche_equipe(equipe1);
     affiche_equipe(equipe2);
     printf("\n");
