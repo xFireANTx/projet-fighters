@@ -87,8 +87,10 @@ int verif_equipe_vivant(int tab[],Equipe equipe1, Equipe equipe2)
 }
 
 int tours() {
-    
-    return 1
+    do{
+
+    }while(!verif_equipe_vivant);
+    return 1;
 }
 
 
