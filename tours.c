@@ -23,9 +23,9 @@ void triABulles(Combattant tableau[], int taille) {
         for (int j = 0; j < taille - i - 1; j++) {
             if (tableau[j].vitesse > tableau[j + 1].vitesse) {
                 // Échanger les éléments
-                int temp = tableau[j].vitesse;
-                tableau[j].vitesse = tableau[j + 1].vitesse;
-                tableau[j + 1].vitesse = temp;
+                int temp = tableau[j];
+                tableau[j] = tableau[j + 1];
+                tableau[j + 1] = temp;
             }
         }
     }
@@ -68,6 +68,8 @@ void definirOrdreAttaque(Equipe equipe1, Equipe equipe2, Combattant *tabCombatta
     tabComcattants[5]=equipe2.combattant3;
     triABulles(tabCombattants,6);
 }
+
+int verif_equipe_vivant(
 
 int tours() {
     
