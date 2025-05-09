@@ -6,15 +6,6 @@
 #include "utilitaire.h"
 
 
-// Affiche les stats d’un combattant
-void afficherStats(Combattant combattants[], int nbCombattants){
-    printf("combattant 1 : %f pv\n", combattants[0].pvCourant);
-    printf("combattant 2 : %f pv\n", combattants[1].pvCourant);
-    /*
-    for (int i=1; i <= nbCombattants; i++) {
-        printf("pvCourant du combattant %d : %f pv\n", i, combattants[i-1].pvCourant);
-    }*/
-}
 int verif_portee(Combattant agresseur, Combattant victime){
     int pA = agresseur.portee;
     if(victime.position_x > agresseur.position_x-pA && victime.position_x < agresseur.position_x+pA){
