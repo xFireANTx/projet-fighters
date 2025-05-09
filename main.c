@@ -20,7 +20,15 @@ int main()
     affiche_equipe(equipe1);
     affiche_equipe(equipe2);
     printf("\n");
-    int x=equipe1.combattant1.position_x;
+    Combattant tableau[6];
+    definirOrdreAttaque(equipe1,equipe2,tableau);
+    /*for(int k=0;k<6;k++)
+    {
+	printf("%s",tableau[k].nom);
+    }*/
+
+   
+    /*int x=equipe1.combattant1.position_x;
     int y=equipe1.combattant1.position_y;
     int portee=equipe1.combattant1.deplacement;
     carte[x][y]='.'; //On remet la case d'origine à vide
@@ -28,7 +36,7 @@ int main()
     equipe1.combattant1.position_x=x;
     equipe1.combattant1.position_y=y;
 
-    carte[equipe1.combattant1.position_x][equipe1.combattant1.position_y]='1'; //On met à jour la carte avec la nouvelle position du combattant
+    carte[equipe1.combattant1.position_x][equipe1.combattant1.position_y]='1'; //On met à jour la carte avec la nouvelle position du combattant*/
 
 
 
