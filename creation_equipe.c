@@ -31,8 +31,8 @@ Combattant creerCombattant(int perso) {
 
 
 
-EQUIPE creerEquipe(int num_equipe) {
-    EQUIPE equipe;
+Equipe creerEquipe(int num_equipe) {
+    Equipe equipe;
     equipe.equipe = num_equipe;
     printf("Entrez le nom de l'equipe %d : ", num_equipe);
     scanf("%10s", equipe.nom); // A RENFORCER
@@ -106,7 +106,7 @@ EQUIPE creerEquipe(int num_equipe) {
     return equipe;
 }
 
-void affiche_equipe(EQUIPE equipe) {
+void affiche_equipe(Equipe equipe) {
     printf("Equipe %d : %s\n", equipe.equipe, equipe.nom);
     printf("Combattant 1 : %s\n", equipe.combattant1.nom);
     printf("PV : %.2f / %.2f\n", equipe.combattant1.pvCourant, equipe.combattant1.pvMax);
