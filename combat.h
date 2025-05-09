@@ -35,11 +35,11 @@
         Combattant combattant1;
         Combattant combattant2;
         Combattant combattant3;
-    } EQUIPE;
+    } Equipe;
 
     Combattant creerCombattant(int perso);
-    EQUIPE creerEquipe(int num_equipe);
-    void affiche_equipe(EQUIPE equipe);
+    Equipe creerEquipe(int num_equipe);
+    void affiche_equipe(Equipe equipe);
     int verif_portee(Combattant agresseur, Combattant victime);
     void combattre(Combattant combattant1, Combattant* combattant2);
     void afficherStats(Combattant combattants[], int nbCombattants);
