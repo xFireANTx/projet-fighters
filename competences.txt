@@ -1,0 +1,6 @@
+Mage            
+Tank            
+Archer          Portée illimitée
+Assassin        Double ses dégats
+Guerrier        
+Soigneur        Ajoute x pv à un membre de l'équipe
