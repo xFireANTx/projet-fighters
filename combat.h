@@ -25,6 +25,7 @@
         int position_x;
         int position_y;
         int deplacement;
+        int portee;
     } Combattant;
 
     typedef struct {
@@ -38,6 +39,7 @@
     Combattant creerCombattant(int perso);
     EQUIPE creerEquipe(int num_equipe);
     void affiche_equipe(EQUIPE equipe);
+    int verif_portee(Combattant agresseur, Combattant victime);
     void combattre(Combattant combattant1, Combattant* combattant2);
     void afficherStats(Combattant combattants[], int nbCombattants);
     int attaquer(Combattant agresseur, Combattant* victime);
