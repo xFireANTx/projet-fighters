@@ -128,9 +128,8 @@ void deplacement_bis(int *x,int *y,int portee,char **carte){
         else {
             deplacement_bis(x, y, portee, carte);
         }
+    return;
     }
-    else{
-        return;
-    }
+
 }
 
