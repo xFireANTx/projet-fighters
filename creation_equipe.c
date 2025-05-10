@@ -45,7 +45,7 @@ Combattant choix_perso(int num_equipe,int deja_pris[]) {
     Combattant combattant;
     int choix ;
     do{
-        printf("Choississer un deuxieme personnage:\n1 : Mage\n2 : Tank\n3 : Archer\n4 : Ninja\n5 : Guerrier\n6 : Soigneur\n");
+        printf("Choississer un personnage:\n1 : Mage\n2 : Tank\n3 : Archer\n4 : Ninja\n5 : Guerrier\n6 : Soigneur\n");
         scan_int(&choix);
         if(choix <1 || choix > 6){
             printf("Erreur, veuillez choisir un personnage entre 1 et 6.\n\n");
