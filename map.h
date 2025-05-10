@@ -12,5 +12,6 @@
     int verif_coord(int* x, int* y,int xMax, int yMax, int xMin, int yMin,char **carte);
     int verif_obstacle(int x, int y, char **carte);
     void deplacement(int *x,int*y ,int portee,char **map);
+    void deplacement_bis(int *x,int *y,int portee,char **carte);
 
 #endif

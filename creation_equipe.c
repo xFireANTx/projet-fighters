@@ -24,7 +24,7 @@ Combattant creerCombattant(int perso,int num_equipe) {
     for (int i = 1; i < perso; i++) {
         fgets(poubelle, sizeof(poubelle), fichier); // On lit les lignes jusqu'à la ligne du personnage choisi
     }
-    
+
     // Récupération des données du personnage depuis le fichier personnage.txt
     fscanf(fichier, "%11s %f %f %f %f %f %f %d %d",c.nom, &c.pvMax, &c.pvCourant, &c.attaque, &c.defense, &c.agilite, &c.vitesse, &c.deplacement, &c.portee);
     c.premierelettre = c.nom[0];
@@ -65,7 +65,7 @@ Equipe creerEquipe(int num_equipe, char **carte) {
     Equipe equipe;
     equipe.equipe = num_equipe;
     printf("Entrez le nom de l'equipe %d : ", num_equipe);
-    scanf("%10[^\n]\n", equipe.nom); // Sert à lire une ligne de texte de 10 caractere jusqu'à un retour à la ligne
+    scanf("%10[^\n]", equipe.nom); // Sert à lire une ligne de texte de 10 caractere jusqu'à un retour à la ligne
     vider_tampon();
 
     
