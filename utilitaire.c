@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "interface.h"
+#include "map.h"
 #include "combat.h"
 #include "utilitaire.h"
 
