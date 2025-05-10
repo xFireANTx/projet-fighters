@@ -5,7 +5,7 @@
     typedef struct {
         char nom[10];
         int valeur;
-        char description[10];
+        char description[100];
         int nbTourActifs;
         int nbTourRechargement;
     } Competence;
