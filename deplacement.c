@@ -1,15 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "interface.h"
+#include <ctype.h>
+
+#include "map.h"
 #include "combat.h"
 #include "utilitaire.h"
+#include "tours.h"
 
 int verif_obstacle(int x, int y, char **carte) {
     if (carte[x][y] == 'X') {
-        return 1; // La case est occupée par un mur
+        return 1; 
     }
-    else if(carte[x][y] == '1' || carte[x][y] == '2'){
-        return 2;// La case est occupée par un personnage
+    else if(isalpha(carte[x][y])) { // Si la case est occupée par un personnage
+        return 2;
     }
     return 0; // La case est libre
 }
@@ -54,6 +57,7 @@ void deplacement(int *x,int *y,int portee,char **carte){
     //cases disponible pour mouvement
     int xMin = *x-portee ,yMin = *y-portee ;        
     int xMax = *x+portee ,yMax = *y+portee;
+
    //on fait en sorte que les Min et Max ne sortent pas de la map
     if(*x-portee<0){                          
         xMin = 0;
