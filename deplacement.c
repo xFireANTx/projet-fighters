@@ -85,7 +85,7 @@ void deplacement_bis(int *x,int *y,int portee,char **carte){
         if(input == '\n'|| portee == 0){
             return;
         }
-    if(verif_obstacle(*x, *x-1, carte)verif_obstacle(*x, *x+1, carte)verif_obstacle(*x, *y-1, carte)verif_obstacle(*x, *y+1, carte)){
+    if(verif_obstacle(*x, *x-1, carte) || verif_obstacle(*x, *x+1, carte) ||verif_obstacle(*x, *y-1, carte) || verif_obstacle(*x, *y+1, carte)){
         if(input == 'z'){
             if(carte[*x][*y-1] == '.'){
                 y -= 1;
