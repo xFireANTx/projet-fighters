@@ -7,12 +7,8 @@
 
 
 int verif_portee(Combattant agresseur, Combattant victime){
-    int pA = agresseur.portee;
-    if(victime.position_x > agresseur.position_x-pA && victime.position_x < agresseur.position_x+pA){
-        if(victime.position_y > agresseur.position_y-pA && victime.position_y < agresseur.position_y+pA){
-            return 1;
-        }
-    }
+    int portee = agresseur.portee;
+    
 return 0;
 }
 

@@ -108,7 +108,7 @@ int tours(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants, char **car
                     int x=tabCombattants[i].position_x;
                     int y=tabCombattants[i].position_y;
                     int portee=tabCombattants[i].deplacement;
-                    carte[x][y]='.'; //On remet la case d'origine à vide
+                    carte[x][y]='.';
                     deplacement(&x,&y,portee,carte);//On déplace le combattant
                     tabCombattants[i].position_x=x;
                     tabCombattants[i].position_y=y;
