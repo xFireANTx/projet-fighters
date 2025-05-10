@@ -82,51 +82,55 @@ void deplacement_bis(int *x,int *y,int portee,char **carte){
     char input;
     affiche_tableau(carte, CARTE_TAILLE);
     scan_char(&input);
-    if(input == '\n'|| portee == 0){
-         return;
-    }
-
-    if(input == 'z'){
-        if(carte[*x][*y-1] == '.'){
-            y -= 1;
-            deplacement(x, y, portee-1, carte);
+        if(input == '\n'|| portee == 0){
+            return;
         }
-        else if(verif_obstacle(*x, *y-1, carte)){
+    if(input == 'z' || input == 'q' || input == 's' || input == 'd'){
+        if(input == 'z'){
+            if(carte[*x][*y-1] == '.'){
+                y -= 1;
+                deplacement(x, y, portee-1, carte);
+            }
+            else if(verif_obstacle(*x, *y-1, carte)){
+                deplacement_bis(x, y, portee, carte);
+            }
+        }
+
+        else if(input == 's'){
+            if(carte[*x][*y+1] == '.'){
+                y += 1;
+                deplacement(x, y, portee-1, carte);
+            }
+            else if(verif_obstacle(*x, *y-1, carte)){
+                deplacement_bis(x, y, portee, carte);
+            }
+        }
+
+        else if(input == 'q'){
+            if(carte[*x-1][*y] == '.'){
+                x -= 1;
+                deplacement(x, y, portee-1, carte);
+            }
+            else if(verif_obstacle(*x-1, *y, carte)){
+                deplacement_bis(x, y, portee, carte);
+            }
+        }
+
+        else if(input == 'd'){
+            if(carte[*x+1][*y] == '.'){
+                x += 1;
+                deplacement(x, y, portee-1, carte);
+            }
+            else if(verif_obstacle(*x+1, *y, carte)){
+                deplacement_bis(x, y, portee, carte);
+            }
+        }
+        else {
             deplacement_bis(x, y, portee, carte);
         }
     }
-
-    else if(input == 's'){
-        if(carte[*x][*y+1] == '.'){
-            y += 1;
-            deplacement(x, y, portee-1, carte);
-        }
-        else if(verif_obstacle(*x, *y-1, carte)){
-            deplacement_bis(x, y, portee, carte);
-        }
-    }
-
-    else if(input == 'q'){
-        if(carte[*x-1][*y] == '.'){
-             x -= 1;
-            deplacement(x, y, portee-1, carte);
-        }
-        else if(verif_obstacle(*x-1, *y, carte)){
-            deplacement_bis(x, y, portee, carte);
-        }
-    }
-
-    else if(input == 'd'){
-        if(carte[*x+1][*y] == '.'){
-            x += 1;
-            deplacement(x, y, portee-1, carte);
-        }
-        else if(verif_obstacle(*x+1, *y, carte)){
-            deplacement_bis(x, y, portee, carte);
-        }
-    }
-    else {
-        deplacement_bis(x, y, portee, carte);
+    else{
+        return;
     }
 }
 
