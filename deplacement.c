@@ -49,7 +49,7 @@ int verif_coord(int* x, int* y,int xMax, int yMax, int xMin, int yMin,char **car
     }
 }
 
-void deplacement(int *x,int *y,int portee,char **carte){   
+/*void deplacement(int *x,int *y,int portee,char **carte){   
 
     //cases disponible pour mouvement
     int xMin = *x-portee ,yMin = *y-portee ;        
@@ -73,4 +73,42 @@ void deplacement(int *x,int *y,int portee,char **carte){
         t = verif_coord(x,y,xMax, yMax, xMin, yMin,carte);
     }
     return;
+}
+*/
+void deplacement(int *x,int *y,int portee,char **carte){
+    char d;
+    if(portee == 0){
+        return 0;
+    }
+    printf("il reste %d mouvements\n",portee);
+    int t = 0;
+    while(t = 0){
+        affiche_tableau(carte, CARTE_TAILLE);
+        printf("choisissez la direction\n");
+        scan_char(&d);
+        if(d == 'z'){
+            if(carte[*x][*y-1] == 0){
+                y -= 1;
+                deplacement(*x, *y, portee-1, carte);
+            }
+        }
+        if(d == 's'){
+            if(carte[*x][*y+1] == 0){
+                y += 1;
+                deplacement(*x, *y, portee-1, carte);
+            }
+        }
+        if(d == 'q'){
+            if(carte[*x-1][*y] == 0){
+                x -= 1;
+                deplacement(*x, *y, portee-1, carte);
+            }
+        }
+        if(d == 'd'){
+            if(carte[*x+1][*y] == 0){
+                x += 1;
+                deplacement(*x, *y, portee-1, carte);
+            }
+        }
+    }
 }
