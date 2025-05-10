@@ -78,7 +78,7 @@ int verif_coord(int* x, int* y,int xMax, int yMax, int xMin, int yMin,char **car
 void deplacement(int *x,int *y,int portee,char **carte){
     char d;
     if(portee == 0){
-        return 0;
+        exit (0);
     }
     printf("il reste %d mouvements\n",portee);
     int t = 0;
@@ -89,25 +89,25 @@ void deplacement(int *x,int *y,int portee,char **carte){
         if(d == 'z'){
             if(carte[*x][*y-1] == 0){
                 y -= 1;
-                deplacement(*x, *y, portee-1, carte);
+                deplacement(x, y, portee-1, carte);
             }
         }
         if(d == 's'){
             if(carte[*x][*y+1] == 0){
                 y += 1;
-                deplacement(*x, *y, portee-1, carte);
+                deplacement(x, y, portee-1, carte);
             }
         }
         if(d == 'q'){
             if(carte[*x-1][*y] == 0){
                 x -= 1;
-                deplacement(*x, *y, portee-1, carte);
+                deplacement(x, y, portee-1, carte);
             }
         }
         if(d == 'd'){
             if(carte[*x+1][*y] == 0){
                 x += 1;
-                deplacement(*x, *y, portee-1, carte);
+                deplacement(x, y, portee-1, carte);
             }
         }
     }
