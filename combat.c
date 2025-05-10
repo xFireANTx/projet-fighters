@@ -8,7 +8,10 @@
 
 int verif_portee(Combattant agresseur, Combattant victime){
     int portee = agresseur.portee;
-    
+    int xAgresseur = agresseur.position_x;
+    int yAgresseur = agresseur.position_y;
+    int xVictime = victime.position_x;
+    int yVictime = victime.position_y;
 return 0;
 }
 

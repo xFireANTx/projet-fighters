@@ -105,7 +105,7 @@ int tours(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants, char **car
                 printf("Au tour de %s de l'equipe %d\n",tabCombattants[i].nom,equipe);
                 choix=choix_attaque_deplacement();
                 if(choix == 2){
-                    int x=tabCombattants[i].position_x;
+                    /*int x=tabCombattants[i].position_x;
                     int y=tabCombattants[i].position_y;
                     int portee=tabCombattants[i].deplacement;
                     carte[x][y]='.';
@@ -113,7 +113,7 @@ int tours(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants, char **car
                     tabCombattants[i].position_x=x;
                     tabCombattants[i].position_y=y;
                     carte[tabCombattants[i].position_x][tabCombattants[i].position_y]=lettre; //On met à jour la carte avec la nouvelle position du combattant
-                    affiche_tableau(carte,CARTE_TAILLE);
+                    affiche_tableau(carte,CARTE_TAILLE);*/
                 }
                 
             }
