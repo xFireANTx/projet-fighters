@@ -150,10 +150,16 @@ void verifEffet(Combattant* perso){
     else if(perso->effetActif == 1){
         perso->pvCourant -= perso->pvMax* 0.12 ; // brulure
         perso->dureeEffet -= 1;
-    }else if(perso->effetActif == 2){            // dague poison
+    }
+    else if(perso->effetActif == 2){            // dague poison
         perso->pvCourant -= 50;
         perso->dureeEffet -= 1;
     }
+    else if(perso->effetActif == 4)
+    {
+        perso->dureeEffet -= 1;
+    }
+
 }
 
 int tours(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants, char **carte){ 
@@ -190,11 +196,11 @@ int tours(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants, char **car
                 printf("Utilisez les touches z,s,q,d (minuscules) pour vous deplacer et la touche a pour mettre fin a vos deplacements\n");
                 affiche_tableau(carte,CARTE_TAILLE);
                 printf("Vous avez %d deplacements\n",tabCombattants[i].deplacement);
+                if(tabCombattants[i].effetActif != 3)
                 deplacement_bis(&tabCombattants[i].position_x,&tabCombattants[i].position_y,tabCombattants[i].deplacement,carte,lettre);
                 
                 int retour=0;
-                if(tabCombattants[i].effetActif != 3){
-                    do{ 
+                do{ 
                         choix = choix_attaque();
                         if(choix==1){
                             if(tabCombattants[i].equipe == 2){
@@ -228,17 +234,27 @@ int tours(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants, char **car
                     }
 
 
-                    }while(retour);
-                }
+                }while(retour);
                 
             }
             c=est_vivant(equipe1,equipe2);
             if(c!=0){
                 break;
             }
-            verifEffet(&tabCombattants[i]);
+            
+        }
+        for(int i=0;i<6;i++)
+        {  
+            if(tabCombattants[i].vivant)
+            {
+                verifEffet(&tabCombattants[i]);
+            }
         }
         
+        c=est_vivant(equipe1,equipe2);
+        if(c!=0){
+            break;
+        }
     }while(!c);
     return 1;
 }
