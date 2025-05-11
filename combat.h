@@ -8,6 +8,7 @@
         char description[100];
         int nbTourActifs;
         int nbTourRechargement;
+        int portee;
     } Competence;
     
     typedef struct {
@@ -21,7 +22,7 @@
         float defense;
         float agilite;
         float vitesse;
-        Competence competences[5];
+        Competence competences[3];
         int effetActif;
         int dureeEffet;
         int position_x;
@@ -40,14 +41,19 @@
     } Equipe;
 
     Combattant creerCombattant(int perso,int num_equipe);
+    void assignation_competence(Combattant *perso,int num);
     Combattant choix_perso(int num_equipe,int deja_pris[]);
     Equipe creerEquipe(int num_equipe,char **carte);
+
+    
     void affiche_equipe(Equipe equipe);
     
     void verif_combattant_portee(char **carte,int x, int y, int portee, int num_equipe, Combattant* cible, int* cible_atteignable,Combattant *allie, int *allie_atteignable);
     void attaque_base(Combattant agresseur, Combattant* ennemi, Combattant* allie,char **carte);
-    void afficherStats(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants);
     int attaque_base_degat(Combattant agresseur, Combattant* victime);
+
+
+    void afficherStats(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants);
 
 
 #endif

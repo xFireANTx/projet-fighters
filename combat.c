@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <time.h>
+#include <errno.h>
+
 #include "map.h"
 #include "combat.h"
 #include "utilitaire.h"
@@ -129,4 +131,43 @@ void attaque_base(Combattant agresseur, Combattant* ennemi, Combattant* allie,ch
         carte[ennemi[choix-1].position_x][ennemi[choix-1].position_y] = '.';
         ennemi[choix-1].vivant = 0;
     }
+}
+
+
+int choix_competence(Combattant agresseur, Combattant *allie , Combattant *ennemi, char **carte)
+{
+    int cible_atteignable[3] = {0,0,0};
+    int allie_atteignable[3] = {0,0,0};
+    int x = agresseur.position_x;
+    int y = agresseur.position_y;   
+    int num_equipe = agresseur.equipe;
+
+    int choix;
+    do{
+        printf("Choisissez une competence (1-3):\n");
+        afficherCompetence(&agresseur);
+        scan_int(&choix);
+        if(choix < 1 || choix > 3){
+            printf("Choix invalide. Veuillez choisir une competence valide.\n");
+            continue;//On ignore la suite de la boucle
+        }
+        else if(agresseur.competences[choix-1].nbTourRechargement > 0){
+            printf("Cette competence est en recharge !\nNombre de tours restants : %d\n",agresseur.competences[choix-1].nbTourRechargement);
+            return 1; //on relance le choix de l'attaque
+        }
+        int ennemi_vivant=0;
+        verif_combattant_portee(carte, x, y, agresseur.competences[choix-1].portee, num_equipe, ennemi, cible_atteignable, allie, allie_atteignable);        
+        for(int i=0;i<3;i++){
+            if(cible_atteignable[i]){
+                ennemi_vivant++;           
+            }
+            cible_atteignable[i]=0; //on reset le tableau
+            allie_atteignable[i]=0; 
+        }
+        if(!ennemi_vivant){
+            printf("Aucun ennemi n'est dans la portee de la competence %s, portee: %d !\n",agresseur.competences[choix-1].nom, agresseur.competences[choix-1].portee);
+            return 1; 
+        }
+    }while(choix < 1 || choix > 3);
+
 }

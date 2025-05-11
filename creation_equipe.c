@@ -10,6 +10,34 @@
 #include "combat.h"
 #include "utilitaire.h"
 
+// Premier ligne de competence dans competence.txt = ligne 3
+// Saut de 5 lignes entre chaque competence de personnages
+void assignation_competence(Combattant *perso,int num)
+{
+    Competence tableau_competence[3];
+    FILE *competence=NULL;
+    competence = fopen("competences.txt", "r");
+    if (competence == NULL) {
+        printf("Erreur d'ouverture du fichier competences.txt\n");
+        exit(1);
+    }
+    char poubelle[300];
+
+    fgets(poubelle, sizeof(poubelle), competence); 
+    fgets(poubelle, sizeof(poubelle), competence); // On lit la premiere et deuxième ligne
+    int ligne = (num-1)*5; // Ligne de la competence 1 du perso choisi 
+    for(int i=0;i<ligne;i++){
+        fgets(poubelle, sizeof(poubelle), competence); // On lit les lignes jusqu'à la ligne du personnage choisi
+    }
+
+    
+    for(int i=0;i<3;i++){
+        fgetc(competence); //On lit le numero de la competence
+        fscanf(competence, "%s %d %s %d %d %d",perso->competences[i].nom,&perso->competences[i].valeur,perso->competences[i].description,&perso->competences[i].nbTourActifs,&perso->competences[i].nbTourRechargement,&perso->competences[i].portee);
+    }
+    fclose(competence); 
+}
+
 Combattant creerCombattant(int perso,int num_equipe) {
     Combattant c;
 
@@ -36,6 +64,7 @@ Combattant creerCombattant(int perso,int num_equipe) {
     c.dureeEffet = 0; 
     c.vivant = 1;
     c.equipe = num_equipe; 
+    assignation_competence(&c,perso); // On assigne les compétences du personnage
 
     fclose(fichier); // On ferme le fichier
     return c;

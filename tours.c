@@ -45,6 +45,16 @@ int verifATT(Combattant* perso, int i){
     }
 }
 
+void afficherCompetence(Combattant *perso){
+    printf("Competences de %s :\n", perso->nom);
+    for(int i=0;i<3;i++){
+        printf("%d : %s\n",i+1,perso->competences[i].nom);
+        printf("Description : %s\n",perso->competences[i].description);
+        printf("Portee : %d| Degat/Soin : %d| Nombre de tours actifs : %d | Nombre de tours de rechargement : %d\n",perso->competences[i].portee,perso->competences[i].valeur,perso->competences[i].nbTourActifs,perso->competences[i].nbTourRechargement);
+        printf("\n");
+    }
+}
+
 // Affiche les stats d’un combattant
 void afficherStats(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants) {
     printf("Stats de l'equipe 1 :\n");
@@ -163,6 +173,7 @@ int tours(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants, char **car
                 printf("Vous avez %d deplacements\n",tabCombattants[i].deplacement);
                 deplacement_bis(&tabCombattants[i].position_x,&tabCombattants[i].position_y,tabCombattants[i].deplacement,carte,lettre);
                 
+                int retour=0;
                 do{ 
                     choix = choix_attaque();
                     if(choix==1){
@@ -174,16 +185,17 @@ int tours(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants, char **car
                         }
                     }
                     else if(choix==2){
-
+                        
                     }
                     else if(choix==3){
                         afficherStats(equipe1,equipe2,tabCombattants);
+                        retour=1;
                     }
                     else if(choix==4){
                         printf("Vous avez choisi de ne rien faire (?)\n");
                     }
 
-                }while(choix==3);
+                }while(retour);
 
                 
             }
