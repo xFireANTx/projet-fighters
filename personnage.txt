@@ -1,7 +1,7 @@
 nom        pvCourant  pvMax  attaque  defense  agilite  vitesse  deplacement portee
-Mage       500        500    60       25       4        2        3           5
-Tank       1000       1000   25       55       2        1        2           2
-Archer     650        650    30       40       5        5        3           8
-Ninja      550        550    45       30       6        6        5           3
-Guerrier   700        700    40       40       5        3        3           3
-Soigneur   800        800    20       40       4        4        4           5
+Mage       700        700    120      25       10       2        4           5
+Tank       1000       1000   65       55       15       1        3           2
+Archer     650        650    80       40       20       5        4           8
+Ninja      550        550    105      30       30       6        6           3
+Guerrier   700        700    95       40       25       3        4           3
+Soigneur   800        800    60       40       15       4        5           5
