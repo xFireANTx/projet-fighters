@@ -126,7 +126,7 @@ int choix_attaque(){
         printf("Que voulez-vous faire ?\n1 : Attaquer\n2 : Attaque Special\n3: Verifier les stats\n4: Rien(passe un tour)\n");
         scan_int(&choix);
         if(choix <1 || choix > 4){
-            printf("Erreur, veuillez choisir une action entre 1 et 3.\n\n");
+            printf("Erreur, veuillez choisir une action entre 1 et 4.\n\n");
         }
     }while(choix <1 || choix > 4);
     return choix;
