@@ -1,0 +1,15 @@
+Rapport du projet CYfighters
+une brève description de l’équipe et du sujet
+
+notre équipe est constituée de Anton Schaff, Tom Machefert et de Siméon Dorninger et nous avons choisi le sujet CYfighters on a tous touché à tout dans le programme pour résoudre les bugs mais on c’est majoritairement spécialiser sur différentes parties du code pour être plus efficaces, surtout les parties qui interagissent entre elles.
+
+Il décrira les différents problèmes rencontrés, les solutions apportées et les résultats
+
+il fallait constamment modifier les anciennes fonction pour que les nouvelles soient plus faciles à coder ce qui, a force, nous a appris à prendre en compte les utilitées futures des fonctions quand on les programmées
+
+on avait des problèmes pour utiliser git particulièrement pour manipuler les branches et les fusionner ce qui nous a fait perdre du travail plus d’une fois, pour s'assurer que cela ne se passerais plus vu que c'était un petit programme on a commencer a telecharger l’ancien répertoire sur votre pc au cas ou on faisait une erreur de manipulation
+
+
+comment l’équipe s’est organisée, et quel était le flux de travail appliqué pour atteindre les objectifs du cahier des charges.
+
+on a mis en place une liste de fonctions à créer sur excel comme ca toute l’équipe savait sur quelle fonctions se focaliser et  sur quelles fonction les autres étaient en train de travailler, on s’y est mis assez tôt donc tout le monde pouvait travailler à son propre rythme ou quand ils avaient le temps ce qui nous a permis de finir avec assez de temps pour tester le jeu et pour y ajouter différentes fonctionnalitées pas présentes sur le cahier des charges
