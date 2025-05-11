@@ -17,7 +17,7 @@ void deplacement_bis(int *x, int *y, int portee, char **carte,char lettre) {
 
     char input;
     scan_char(&input);
-
+    input = tolower(input);
     int n_x = *x;
     int n_y = *y;
     if(input == 'a') {
