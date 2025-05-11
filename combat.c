@@ -81,7 +81,7 @@ int  attaque_base_degat(Combattant agresseur, Combattant* victime){
         degatreduit = 0;
     }
     victime->pvCourant -= degatreduit;
-    printf("%f pv", victime->pvCourant);
+    printf("test    %f pv", victime->pvCourant);
 
     if(victime->pvCourant <= 0){
         victime->vivant = 0;
