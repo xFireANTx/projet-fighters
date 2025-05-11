@@ -147,16 +147,21 @@ int tours(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants, char **car
     int c=0;
     Combattant tab_equipe1[3] ;
     Combattant tab_equipe2[3] ;
+    Combattant tab_equipe1_copie[3] ;
+    Combattant tab_equipe2_copie[3] ;
+
     int indice_1=0;
     int indice_2=0;
     for(int i=0;i<6;i++)
     {
         if(tabCombattants[i].equipe == 1){
             tab_equipe1[indice_1] = tabCombattants[i];
+            tab_equipe1_copie[indice_1] = tabCombattants[i];
             indice_1++;
         }
         else{
             tab_equipe2[indice_2] = tabCombattants[i];
+            tab_equipe2_copie[indice_2] = tabCombattants[i];
             indice_2++;
         }
     }
@@ -183,9 +188,17 @@ int tours(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants, char **car
                         else{
                             attaque_base(tabCombattants[i],tab_equipe2,tab_equipe1,carte);
                         }
+                        retour =0;
                     }
                     else if(choix==2){
-                        
+                        if(tabCombattants[i].equipe == 2)
+                        {
+                            retour =choix_competence(tabCombattants[i],tab_equipe2,tab_equipe2_copie,tab_equipe1,carte);
+                        }
+                        else
+                        {
+                            retour =choix_competence(tabCombattants[i],tab_equipe1,tab_equipe1_copie,tab_equipe2,carte);
+                        }
                     }
                     else if(choix==3){
                         afficherStats(equipe1,equipe2,tabCombattants);
@@ -193,6 +206,7 @@ int tours(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants, char **car
                     }
                     else if(choix==4){
                         printf("Vous avez choisi de ne rien faire (?)\n");
+                        retour =0;
                     }
 
                 }while(retour);

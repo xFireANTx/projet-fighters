@@ -134,7 +134,7 @@ void attaque_base(Combattant agresseur, Combattant* ennemi, Combattant* allie,ch
 }
 
 
-int choix_competence(Combattant agresseur, Combattant *allie , Combattant *ennemi, char **carte)
+int choix_competence(Combattant agresseur,Combattant* allie, Combattant *allie_copie , Combattant *ennemi, char **carte)
 {
     int cible_atteignable[3] = {0,0,0};
     int allie_atteignable[3] = {0,0,0};
@@ -155,18 +155,30 @@ int choix_competence(Combattant agresseur, Combattant *allie , Combattant *ennem
             printf("Cette competence est en recharge !\nNombre de tours restants : %d\n",agresseur.competences[choix-1].nbTourRechargement);
             return 1; //on relance le choix de l'attaque
         }
-        int ennemi_vivant=0;
-        verif_combattant_portee(carte, x, y, agresseur.competences[choix-1].portee, num_equipe, ennemi, cible_atteignable, allie, allie_atteignable);        
-        for(int i=0;i<3;i++){
-            if(cible_atteignable[i]){
-                ennemi_vivant++;           
+        else {
+            char l = toupper(agresseur.premierelettre);
+            switch (l){
+                case 'M':
+                    return Mage(&agresseur, agresseur, carte, ennemi, allie, choix);
+                    break;
+                case 'N':
+                    return Ninja(&agresseur, agresseur, carte, ennemi, allie, choix);
+                    break;
+                case 'S':
+                    return Soigneur(&agresseur, agresseur, carte, ennemi, allie, choix);
+                    break;
+                case 'T':
+                    return Tank(&agresseur, agresseur, carte, ennemi, allie, choix);
+                    break;
+                case 'G':
+                    return Guerrier(&agresseur, agresseur, carte, ennemi, allie, choix);
+
+                case 'A':
+                    return Archer(&agresseur, agresseur, carte, ennemi, allie, choix);
+                default:
+                    printf("Erreur de classe !\n");
+                    return 1; //on relance le choix de l'attaque
             }
-            cible_atteignable[i]=0; //on reset le tableau
-            allie_atteignable[i]=0; 
-        }
-        if(!ennemi_vivant){
-            printf("Aucun ennemi n'est dans la portee de la competence %s, portee: %d !\n",agresseur.competences[choix-1].nom, agresseur.competences[choix-1].portee);
-            return 1; 
         }
     }while(choix < 1 || choix > 3);
 
