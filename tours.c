@@ -28,24 +28,6 @@ void triABullesOptimise(Combattant tableau[], int taille) {
     }
 }
 
-int verifATT(Combattant* perso, int i){
-    int x,y =0;
-    int t=0;
-    while(t==0){
-        printf("entrez la coordonée x de l adversaire \n");
-        scan_int(&x);
-        printf("entrez la coordonée y de l adversaire \n");
-        scan_int(&y);
-        for(int j = 0; i<6; i++){
-            if(x == perso[j].position_x && y == perso[j].position_y){
-                if(perso[i].equipe != perso[j].equipe){
-                    return j;
-                }
-            }
-        }
-    }
-}
-
 void afficherCompetence(Combattant *perso){
     printf("Competences de %s :\n", perso->nom);
     for(int i=0;i<3;i++){
