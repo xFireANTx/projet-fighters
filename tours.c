@@ -57,7 +57,7 @@ void afficherCompetence(Combattant *perso){
 }
 
 // Affiche les stats d’un combattant
-void afficherStats(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants) {
+void afficherStats( Combattant *tabCombattants) {
     printf("Stats de l'equipe 1 :\n");
     for(int k=0;k<6;k++)
     {
