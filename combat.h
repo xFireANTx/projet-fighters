@@ -43,10 +43,10 @@
     Equipe creerEquipe(int num_equipe,char **carte);
     void affiche_equipe(Equipe equipe);
     
-    int verif_portee(Combattant agresseur, Combattant victime);
-    void combattre(Combattant combattant1, Combattant* combattant2);
-    void afficherStats(Combattant combattants[], int nbCombattants);
-    int attaquer(Combattant agresseur, Combattant* victime);
+    void verif_combattant_portee(char **carte,int x, int y, int portee, int num_equipe, Combattant* cible, int* cible_atteignable,Combattant *allie, int *allie_atteignable);
+    void attaque_base(Combattant agresseur, Combattant* ennemi, Combattant* allie,char **carte);
+    void afficherStats(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants);
+    int attaque_base_degat(Combattant agresseur, Combattant* victime);
 
 
 #endif

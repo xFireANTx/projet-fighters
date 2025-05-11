@@ -20,8 +20,10 @@ void deplacement_bis(int *x, int *y, int portee, char **carte,char lettre) {
 
     int n_x = *x;
     int n_y = *y;
-
-    if (input == 'z' && *x > 0 && carte[*x-1][*y] == '.') {
+    if(input == 'a') {
+        return; // Fin du déplacement
+    }
+    else if (input == 'z' && *x > 0 && carte[*x-1][*y] == '.') {
         n_x = *x - 1;
     } else if (input == 's' && *x < CARTE_TAILLE-1 && carte[*x+1][*y] == '.') {
         n_x = *x + 1;

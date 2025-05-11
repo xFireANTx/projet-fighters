@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <time.h>
+
 #include "map.h"
 #include "combat.h"
 #include "utilitaire.h"
@@ -11,6 +13,8 @@
 
 int main()
 {
+    srand(time(NULL));
+    
     //Initialisation de la carte
     char **carte = malloc(CARTE_TAILLE*sizeof(char*));
     int n_map=choix_map();

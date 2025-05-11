@@ -9,8 +9,6 @@
     int choix_map();
 
     //Fonction qui s'occupent des déplacements
-    int verif_coord(int* x, int* y,int xMax, int yMax, int xMin, int yMin,char **carte);
-    void deplacement(int *x,int*y ,int portee,char **map);
     void deplacement_bis(int *x,int *y,int portee,char **carte,char lettre);
 
 #endif

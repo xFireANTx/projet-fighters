@@ -9,6 +9,7 @@
     int est_vivant(Equipe equipe1, Equipe equipe2);
     int verifATT(Combattant* perso, int i);
     int tours(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants, char **carte);
-    int choix_attaque_deplacement();
+    void afficherStats(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants);
+    int choix_attaque();
 
 #endif
