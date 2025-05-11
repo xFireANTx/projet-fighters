@@ -23,6 +23,7 @@
         float vitesse;
         Competence competences[5];
         int effetActif;
+        int dureeEffet;
         int position_x;
         int position_y;
         int deplacement;
