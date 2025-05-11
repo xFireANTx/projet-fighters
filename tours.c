@@ -162,6 +162,17 @@ void verifEffet(Combattant* perso){
 
 }
 
+void cooldown(Combattant* perso)
+{
+    for(int i=0;i<3;i++){
+        perso->competence[i].nbTourRechargement--;
+        if(perso->competence[i].nbTourRechargement<=0)
+        {
+            perso->competence[i].nbTourRechargement = 0;
+        }
+    }
+}
+
 int tours(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants, char **carte){ 
     
     int c=0;
@@ -248,13 +259,11 @@ int tours(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants, char **car
             if(tabCombattants[i].vivant)
             {
                 verifEffet(&tabCombattants[i]);
+                cooldown(&tabCombattants[i]);
             }
         }
         
         c=est_vivant(equipe1,equipe2);
-        if(c!=0){
-            break;
-        }
     }while(!c);
     return 1;
 }
