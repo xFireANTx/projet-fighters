@@ -57,53 +57,31 @@ void afficherCompetence(Combattant *perso){
 }
 
 // Affiche les stats d’un combattant
-void afficherStats(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants) {
+void afficherStats( Combattant *tabCombattants) {
     printf("Stats de l'equipe 1 :\n");
-    printf("Nom : %s\n", equipe1.nom);
-    printf("Combattant 1 : %s\n", equipe1.combattant1.nom);
-    printf("PV : %.2f / %.2f\n", equipe1.combattant1.pvCourant, equipe1.combattant1.pvMax);
-    printf("Attaque : %.2f, Defense : %.2f, Agilite : %.2f, Portee : %d, Lettre : %c, Effet : %d, Etat : %s\n", 
-           equipe1.combattant1.attaque, equipe1.combattant1.defense, 
-           equipe1.combattant1.agilite, equipe1.combattant1.portee, equipe1.combattant1.premierelettre,
-           equipe1.combattant1.effetActif, equipe1.combattant1.vivant ? "Vivant" : "Mort");
-
-    printf("Combattant 2 : %s\n", equipe1.combattant2.nom);
-    printf("PV : %.2f / %.2f\n", equipe1.combattant2.pvCourant, equipe1.combattant2.pvMax);
-    printf("Attaque : %.2f, Defense : %.2f, Agilite : %.2f, Portee : %d, Lettre : %c, Effet : %d, Etat : %s\n", 
-           equipe1.combattant2.attaque, equipe1.combattant2.defense, 
-           equipe1.combattant2.agilite, equipe1.combattant2.portee, equipe1.combattant2.premierelettre,
-           equipe1.combattant2.effetActif, equipe1.combattant2.vivant ? "Vivant" : "Mort");
-
-    printf("Combattant 3 : %s\n", equipe1.combattant3.nom);
-    printf("PV : %.2f / %.2f\n", equipe1.combattant3.pvCourant, equipe1.combattant3.pvMax);
-    printf("Attaque : %.2f, Defense : %.2f, Agilite : %.2f, Portee : %d, Lettre : %c, Effet : %d, Etat : %s\n", 
-           equipe1.combattant3.attaque, equipe1.combattant3.defense, 
-           equipe1.combattant3.agilite, equipe1.combattant3.portee, equipe1.combattant3.premierelettre,
-           equipe1.combattant3.effetActif, equipe1.combattant3.vivant ? "Vivant" : "Mort");
-
+    for(int k=0;k<6;k++)
+    {
+        if(tabCombattants[k].equipe == 1){
+            printf("Nom : %s\n", tabCombattants[k].nom);
+            printf("PV : %.2f / %.2f\n", tabCombattants[k].pvCourant, tabCombattants[k].pvMax);
+            printf("Attaque : %.2f, Defense : %.2f, Agilite : %.2f, Portee : %d, Lettre : %c, Effet : %d, Etat : %s\n", 
+                   tabCombattants[k].attaque, tabCombattants[k].defense, 
+                   tabCombattants[k].agilite, tabCombattants[k].portee, tabCombattants[k].premierelettre,
+                   tabCombattants[k].effetActif, tabCombattants[k].vivant ? "Vivant" : "Mort");
+        }
+    }
     printf("\nStats de l'equipe 2 :\n");
-    printf("Nom : %s\n", equipe2.nom);
-    printf("Combattant 1 : %s\n", equipe2.combattant1.nom);
-    printf("PV : %.2f / %.2f\n", equipe2.combattant1.pvCourant, equipe2.combattant1.pvMax);
-    printf("Attaque : %.2f, Defense : %.2f, Agilite : %.2f, Portee : %d, Lettre : %c, Effet : %d, Etat : %s\n", 
-           equipe2.combattant1.attaque, equipe2.combattant1.defense, 
-           equipe2.combattant1.agilite, equipe2.combattant1.portee, equipe2.combattant1.premierelettre,
-           equipe2.combattant1.effetActif, equipe2.combattant1.vivant ? "Vivant" : "Mort");
-
-    printf("Combattant 2 : %s\n", equipe2.combattant2.nom);
-    printf("PV : %.2f / %.2f\n", equipe2.combattant2.pvCourant, equipe2.combattant2.pvMax);
-    printf("Attaque : %.2f, Defense : %.2f, Agilite : %.2f, Portee : %d, Lettre : %c, Effet : %d, Etat : %s\n", 
-           equipe2.combattant2.attaque, equipe2.combattant2.defense, 
-           equipe2.combattant2.agilite, equipe2.combattant2.portee, equipe2.combattant2.premierelettre,
-           equipe2.combattant2.effetActif, equipe2.combattant2.vivant ? "Vivant" : "Mort");
-
-    printf("Combattant 3 : %s\n", equipe2.combattant3.nom);
-    printf("PV : %.2f / %.2f\n", equipe2.combattant3.pvCourant, equipe2.combattant3.pvMax);
-    printf("Attaque : %.2f, Defense : %.2f, Agilite : %.2f, Portee : %d, Lettre : %c, Effet : %d, Etat : %s\n", 
-           equipe2.combattant3.attaque, equipe2.combattant3.defense, 
-           equipe2.combattant3.agilite, equipe2.combattant3.portee, equipe2.combattant3.premierelettre,
-           equipe2.combattant3.effetActif, equipe2.combattant3.vivant ? "Vivant" : "Mort");
-
+    for(int k=0;k<6;k++)
+    {
+        if(tabCombattants[k].equipe == 2){
+            printf("Nom : %s\n", tabCombattants[k].nom);
+            printf("PV : %.2f / %.2f\n", tabCombattants[k].pvCourant, tabCombattants[k].pvMax);
+            printf("Attaque : %.2f, Defense : %.2f, Agilite : %.2f, Portee : %d, Lettre : %c, Effet : %d, Etat : %s\n", 
+                   tabCombattants[k].attaque, tabCombattants[k].defense, 
+                   tabCombattants[k].agilite, tabCombattants[k].portee, tabCombattants[k].premierelettre,
+                   tabCombattants[k].effetActif, tabCombattants[k].vivant ? "Vivant" : "Mort");
+        }
+    }
 }
 
 
