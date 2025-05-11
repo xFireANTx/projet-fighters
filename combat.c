@@ -108,8 +108,6 @@ void attaque_base(Combattant agresseur, Combattant* ennemi, Combattant* allie,ch
         if(cible_atteignable[i]){
             ennemi_vivant++;           
         }
-        cible_atteignable[i]=0; //on reset le tableau
-        allie_atteignable[i]=0; 
     }
     if(!ennemi_vivant){
         printf("Aucun ennemi n'est dans votre portee !\n");
