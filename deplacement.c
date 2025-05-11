@@ -44,5 +44,5 @@ void deplacement_bis(int *x, int *y, int portee, char **carte,char lettre) {
 
     affiche_tableau(carte, CARTE_TAILLE);
     deplacement_bis(x, y, portee - 1, carte,lettre);
-
+}
 

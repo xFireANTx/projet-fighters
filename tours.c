@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 #include "map.h"
 #include "combat.h"
 #include "utilitaire.h"
@@ -142,7 +143,20 @@ int choix_attaque(){
     return choix;
 }
 
-int tours(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants, char **carte) { 
+void verifEffet(Combattant* perso){
+    if(perso->dureeEffet == 0){
+        perso->effetActif == 0;
+    }
+    else if(perso->effetActif == 1){
+        perso->pvCourant -= perso->pvMax* 0.12 ; // brulure
+        perso->dureeEffet -= 1;
+    }else if(perso->effetActif == 2){            // dague poison
+        perso->pvCourant -= 50;
+        perso->dureeEffet -= 1;
+    }
+}
+
+int tours(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants, char **carte){ 
     
     int c=0;
     Combattant tab_equipe1[3] ;
@@ -174,35 +188,37 @@ int tours(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants, char **car
                 deplacement_bis(&tabCombattants[i].position_x,&tabCombattants[i].position_y,tabCombattants[i].deplacement,carte,lettre);
                 
                 int retour=0;
-                do{ 
-                    choix = choix_attaque();
-                    if(choix==1){
-                        if(tabCombattants[i].equipe == 2){
-                            attaque_base(tabCombattants[i],tab_equipe1,tab_equipe2,carte);
+                if(tabCombattants[i].effetActif != 3){
+                    do{ 
+                        choix = choix_attaque();
+                        if(choix==1){
+                            if(tabCombattants[i].equipe == 2){
+                                attaque_base(tabCombattants[i],tab_equipe1,tab_equipe2,carte);
+                            }
+                            else{
+                                attaque_base(tabCombattants[i],tab_equipe2,tab_equipe1,carte);
+                            }
                         }
-                        else{
-                            attaque_base(tabCombattants[i],tab_equipe2,tab_equipe1,carte);
+                        else if(choix==2){
+                            
                         }
-                    }
-                    else if(choix==2){
-                        
-                    }
-                    else if(choix==3){
-                        afficherStats(equipe1,equipe2,tabCombattants);
-                        retour=1;
-                    }
-                    else if(choix==4){
-                        printf("Vous avez choisi de ne rien faire (?)\n");
-                    }
+                        else if(choix==3){
+                            afficherStats(equipe1,equipe2,tabCombattants);
+                            retour=1;
+                        }
+                        else if(choix==4){
+                            printf("Vous avez choisi de ne rien faire (?)\n");
+                        }
 
-                }while(retour);
-
+                    }while(retour);
+                }
                 
             }
             c=est_vivant(equipe1,equipe2);
             if(c!=0){
                 break;
             }
+            verifEffet(&tabCombattants[i]);
         }
         
     }while(!c);
