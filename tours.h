@@ -11,7 +11,7 @@
     int tours(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants, char **carte);
 
     void afficherCompetence(Combattant *perso);
-    void afficherStats(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants);
+    void afficherStats(Combattant *tabCombattants);
     
     int choix_attaque();
     void verifEffet(Combattant* perso);
