@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <time.h>
 #include <errno.h>
-
+#include "tours.h"
 #include "map.h"
 #include "combat.h"
 #include "utilitaire.h"
