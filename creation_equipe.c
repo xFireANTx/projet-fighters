@@ -50,14 +50,6 @@ void assignation_competence(Combattant *perso,int num)
         }
         fgets(perso->competences[i].description, sizeof(perso->competences[i].description), competence); // On lit la description
         fscanf(competence, "%d %d %d", &perso->competences[i].nbTourActifs, &perso->competences[i].nbTourRechargement, &perso->competences[i].portee);
-        printf("Competence %d : Nom = %s, Valeur = %d, Description = %s, Actifs = %d, Rechargement = %d, Portee = %d\n",
-           i + 1,
-           perso->competences[i].nom,
-           perso->competences[i].valeur,
-           perso->competences[i].description,
-           perso->competences[i].nbTourActifs,
-           perso->competences[i].nbTourRechargement,
-           perso->competences[i].portee);
     }
     fclose(competence); 
 }
