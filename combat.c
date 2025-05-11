@@ -24,6 +24,7 @@ void carre_portee(int *x_min, int *x_max,int *y_min, int *y_max, int portee){
     if(*y_max>=CARTE_TAILLE){
         *y_max=CARTE_TAILLE-1;
     }
+
 }
 
 // Fonction qui verifie quels combattant (allies ou ennemis) sont dans la portee de l'attaquant et qui les ajoute dans deux tableau respectif
@@ -39,14 +40,19 @@ void verif_combattant_portee(char **carte,int x, int y, int portee, int num_equi
     for(int i=x_min;i<=x_max;i++){
         for(int j=y_min;j<=y_max;j++){
 
-            if(carte[i][j] != '.' && carte[i][j] != 'X'){
+            // Recherche des ennemis
+            if(carte[i][j] != '.' && carte[i][j] != 'X' ){
                 for(int k=0;k<3;k++){
                     if(carte[i][j] == cible[k].premierelettre && cible[k].equipe != num_equipe){
+                        printf("Cible trouvée : %s  %d %d\n", cible[k].nom,i,j);
                         cible_atteignable[k]=1;
                     }
-                }                   
+                }
+                
+                // recherche des alliés
                 for(int k=0;k<3;k++){
                     if(carte[i][j] == allie[k].premierelettre && allie[k].equipe == num_equipe){
+                        printf("Allie trouvé : %s  %d %d\n", allie[k].nom,i,j);
                          allie_atteignable[k]=1;
                     }
                 }                   
@@ -98,8 +104,10 @@ void attaque_base(Combattant agresseur, Combattant* ennemi, Combattant* allie,ch
     int ennemi_vivant=0;
     for(int i=0;i<3;i++){
         if(cible_atteignable[i]){
-            ennemi_vivant++;
+            ennemi_vivant++;           
         }
+        cible_atteignable[i]=0; //on reset le tableau
+        allie_atteignable[i]=0; 
     }
     if(!ennemi_vivant){
         printf("Aucun ennemi n'est dans votre portee !\n");

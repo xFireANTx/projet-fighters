@@ -33,6 +33,7 @@ Combattant creerCombattant(int perso,int num_equipe) {
     }
 
     c.effetActif = 0; // On initialise l'effet actif à 0(pas d'effet)
+    c.dureeEffet = 0; 
     c.vivant = 1;
     c.equipe = num_equipe; 
 
