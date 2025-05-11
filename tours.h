@@ -14,6 +14,8 @@
     void afficherStats(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants);
     
     int choix_attaque();
+    void verifEffet(Combattant* perso);
+    void cooldown(Combattant* perso)
 
 
 #endif
