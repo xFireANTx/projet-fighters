@@ -1,0 +1,23 @@
+Présentation de l’équipe et du sujet
+
+Notre équipe est composée d’Anton Schaff, Tom Machefert et Siméon Dorninger. Nous avons choisi de travailler sur le projet 
+CYfighters, un jeu que nous avons développé en équipe. Chacun d’entre nous a participé à toutes les étapes du programme afin 
+de corriger les bugs, mais nous nous sommes principalement spécialisés sur différentes parties du code. Cette répartition nous 
+a permis de gagner en efficacité, notamment sur les modules qui interagissent entre eux.
+
+Problèmes rencontrés et solutions apportées
+
+Tout au long du projet, nous avons dû adapter constamment les anciennes fonctions pour faciliter l’intégration des nouvelles. 
+Cela nous a appris à anticiper les besoins futurs lors de la conception des fonctions, et à penser en termes de modularité et 
+de réutilisabilité.
+Nous avons également rencontré des difficultés avec Git, en particulier pour la gestion des branches et les fusions. Cela a entraîné 
+la perte de travail à plusieurs reprises. Pour éviter que cela ne se reproduise, nous avons pris l’habitude de télécharger une copie 
+du répertoire sur nos ordinateurs respectifs, afin de pouvoir restaurer le projet en cas d’erreur de manipulation.
+
+Organisation de l’équipe et méthode de travail
+
+Pour organiser notre travail, nous avons mis en place une liste des fonctions à développer sur Excel. Cela permettait à chaque membre 
+de l’équipe de savoir sur quelles fonctionnalités se concentrer et de suivre l’avancement global. Grâce à cette organisation anticipée, 
+chacun a pu avancer à son propre rythme en fonction de ses disponibilités.
+Cette méthode nous a permis de terminer le projet avec suffisamment de temps pour effectuer des tests et ajouter plusieurs fonctionnalités 
+supplémentaires qui n’étaient pas initialement prévues dans le cahier des charges.
