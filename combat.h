@@ -5,7 +5,7 @@
     typedef struct {
         char nom[10];
         int valeur;
-        char description[100];
+        char description[80];
         int nbTourActifs;
         int nbTourRechargement;
         int portee;
@@ -55,5 +55,15 @@
 
     void afficherStats(Equipe equipe1, Equipe equipe2, Combattant *tabCombattants);
 
+    int choix_competence(Combattant agresseur,Combattant *allie, Combattant *allie_copie , Combattant *ennemi, char **carte);
+    void afficherCompetence(Combattant *perso);
+
+    void application_effet(Combattant *victime, Combattant *agresseur,int effet,int num_competence);
+    int Mage(Combattant *joueur, Combattant joueur_copie, char **carte, Combattant* ennemi, Combattant *allie, int choix);
+    int Soigneur(Combattant *joueur, Combattant joueur_copie, char **carte, Combattant* ennemi, Combattant *allie, int choix);
+    int Ninja(Combattant *joueur, Combattant joueur_copie, char **carte, Combattant* ennemi, Combattant *allie, int choix);
+    int Tank(Combattant *joueur, Combattant joueur_copie, char **carte, Combattant* ennemi, Combattant *allie, int choix);
+    int Guerrier(Combattant *joueur, Combattant joueur_copie, char **carte, Combattant* ennemi, Combattant *allie, int choix);
+    int Archer(Combattant *joueur, Combattant joueur_copie, char **carte, Combattant* ennemi, Combattant *allie, int choix);
 
 #endif

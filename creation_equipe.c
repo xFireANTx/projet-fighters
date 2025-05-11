@@ -31,9 +31,33 @@ void assignation_competence(Combattant *perso,int num)
     }
 
     
-    for(int i=0;i<3;i++){
+    /*for(int i=0;i<3;i++){
         fgetc(competence); //On lit le numero de la competence
         fscanf(competence, "%s %d %s %d %d %d",perso->competences[i].nom,&perso->competences[i].valeur,perso->competences[i].description,&perso->competences[i].nbTourActifs,&perso->competences[i].nbTourRechargement,&perso->competences[i].portee);
+        fgetc(competence); // On lit le retour à la ligne
+    }*/
+    for (int i = 0; i < 3; i++) {
+        for(int j=0;j<5;j++){
+            fgetc(competence);
+        }
+         // On lit le numéro de la compétence
+        fscanf(competence, "%s %d ",perso->competences[i].nom,&perso->competences[i].valeur);
+        char a;
+        a=fgetc(competence);
+        while(a==' ')
+        {
+            a=fgetc(competence); // On lit les espaces
+        }
+        fgets(perso->competences[i].description, sizeof(perso->competences[i].description), competence); // On lit la description
+        fscanf(competence, "%d %d %d", &perso->competences[i].nbTourActifs, &perso->competences[i].nbTourRechargement, &perso->competences[i].portee);
+        printf("Competence %d : Nom = %s, Valeur = %d, Description = %s, Actifs = %d, Rechargement = %d, Portee = %d\n",
+           i + 1,
+           perso->competences[i].nom,
+           perso->competences[i].valeur,
+           perso->competences[i].description,
+           perso->competences[i].nbTourActifs,
+           perso->competences[i].nbTourRechargement,
+           perso->competences[i].portee);
     }
     fclose(competence); 
 }
