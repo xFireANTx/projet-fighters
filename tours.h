@@ -15,7 +15,7 @@
     
     int choix_attaque();
     void verifEffet(Combattant* perso);
-    void cooldown(Combattant* perso)
+    void cooldown(Combattant* perso);
 
 
 #endif
