@@ -165,10 +165,10 @@ void verifEffet(Combattant* perso){
 void cooldown(Combattant* perso)
 {
     for(int i=0;i<3;i++){
-        perso->competence[i].nbTourRechargement--;
-        if(perso->competence[i].nbTourRechargement<=0)
+        perso->competences[i].nbTourRechargement--;
+        if(perso->competences[i].nbTourRechargement<=0)
         {
-            perso->competence[i].nbTourRechargement = 0;
+            perso->competences[i].nbTourRechargement = 0;
         }
     }
 }
